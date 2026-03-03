@@ -74,3 +74,4 @@ with open("mood_history.txt", "w", encoding="utf-8") as file:
     file.write(f"Худший день: {min(mood_scores)}\n")
 
 print("\n📁 Результаты сохранены в mood_history.txt")
+input("Нажми Enter, чтобы выйти...")
