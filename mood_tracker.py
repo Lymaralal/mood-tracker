@@ -15,8 +15,17 @@ start_date = datetime.now()
 
 # данные за 31 день
 for day in range(1, 32):
-    score = int(input(f"День {day}: "))
-    mood_scores.append(score)
+    while True:
+        try:
+            score = int(input(f"День {day}: "))
+            if 1 <= score <= 5:
+                mood_scores.append(score)
+                break
+            else:
+                print("❌ Оценка должна быть от 1 до 5. Попробуй ещё раз.")
+        except ValueError:
+            print("❌ Нужно ввести число от 1 до 5. Попробуй ещё раз.")
+
     current_date = start_date - timedelta(days=31 - day)
     dates.append(current_date.strftime("%d.%m"))
 
@@ -75,3 +84,4 @@ with open("mood_history.txt", "w", encoding="utf-8") as file:
 
 print("\n📁 Результаты сохранены в mood_history.txt")
 input("Нажми Enter, чтобы выйти...")
+
